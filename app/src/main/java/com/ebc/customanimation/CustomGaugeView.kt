@@ -85,10 +85,11 @@ class CustomGaugeView @JvmOverloads constructor(
         canvas.drawArc(oval, 180f,sweepAngle, false, paintFill)
         canvas.restore()
 
-
-
-
-
+        // 4) Dibujo de la aguja
+        val radNeedle = Math.toRadians((180f + needleAngle).toDouble())
+        val nx = cx + cos(radNeedle).toFloat() * (radius - 30)
+        val ny = cy + sin(radNeedle).toFloat() * (radius - 30)
+        canvas.drawLine(cx, cy, nx, ny, paintNeedle)
     }
 
 
