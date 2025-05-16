@@ -1,5 +1,6 @@
 package com.ebc.customanimation
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,6 +9,7 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
@@ -36,8 +38,8 @@ class CustomGaugeView @JvmOverloads constructor(
         color = Color.RED; strokeWidth = 8f
     }
 
-    private val sweepAngle = 0f
-    private val needleAngle = 0f
+    private var sweepAngle = 0f
+    private var needleAngle = 0f
 
     val currentNeedleAngle: Float
         get() = needleAngle
@@ -92,5 +94,17 @@ class CustomGaugeView @JvmOverloads constructor(
         canvas.drawLine(cx, cy, nx, ny, paintNeedle)
     }
 
+    fun animateTo(value: Float) {
+        ValueAnimator.ofFloat(needleAngle, value).apply {
+            duration = 800
+            interpolator = AccelerateDecelerateInterpolator()
+            addUpdateListener {
+                needleAngle = it.animatedValue as Float
+                sweepAngle = needleAngle
+                invalidate()
+            }
 
+            start()
+        }
+    }
 }
