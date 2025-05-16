@@ -17,5 +17,27 @@
         motion:layout_constraintStart_toStartOf="parent"
         motion:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Velocidad: 0 km/h"
+        motion:layout_constraintStart_toStartOf="parent"
+        motion:layout_constraintEnd_toEndOf="parent"
+        motion:layout_constraintTop_toBottomOf="@id/gaugeView"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        motion:layout_constraintStart_toStartOf="parent"
+        motion:layout_constraintEnd_toEndOf="parent"
+        motion:layout_constraintTop_toBottomOf="@id/infoText"
+        android:visibility="gone"
+        />
+
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
