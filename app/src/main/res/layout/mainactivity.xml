@@ -2,8 +2,20 @@
 <androidx.constraintlayout.motion.widget.MotionLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    motion:layoutDescription="@xml/speedo_scene">
+    motion:layoutDescription="@xml/speedo_scene"
+    android:id="@+id/motionLayout"
+    >
+
+    <com.ebc.customanimation.CustomGaugeView
+        android:id="@+id/gaugeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        motion:layout_constraintEnd_toEndOf="parent"
+        motion:layout_constraintStart_toStartOf="parent"
+        motion:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
