@@ -2,6 +2,23 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
+    <Transition
+        motion:constraintSetStart="@id/collapsed"
+        motion:constraintSetEnd="@id/expanded"
+        motion:duration="500"
+        >
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/gaugeView"
+                motion:framePosition="50"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotationY="90.0"
+                />
+
+        </KeyFrameSet>
+    </Transition>
+
     <ConstraintSet android:id="@+id/collapsed">
         <Constraint
             android:id="@+id/gaugeView"
