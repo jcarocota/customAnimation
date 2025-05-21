@@ -48,5 +48,43 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                val angle = gaugeView.currentNeedleAngle
+                //Supongamos que el velocímetro va de 0 a 120 KM
+                //0° - 0KM
+                //180° - 120KM
+                val speed = (angle /180f * 120).toInt() //Esta regla de tres nos va a convertir los grados a nuestros KM
+
+                infoText.text = "Velocidad: $speed KM/H"
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+
+            }
+        })
+
     }
 }
