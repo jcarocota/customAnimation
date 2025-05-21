@@ -41,5 +41,12 @@ class MainActivity : AppCompatActivity() {
             gaugeView.animateTo(randomAngle)
         }
 
+        gaugeView.setOnLongClickListener {
+            if (motionLayout.progress == 0f) motionLayout.transitionToEnd()
+            else motionLayout.transitionToStart()
+
+            true
+        }
+
     }
 }
