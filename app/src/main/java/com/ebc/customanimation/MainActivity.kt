@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.mainactivity)
 
         gaugeView = findViewById(R.id.gaugeView)
+        //Voy a cargar el XML de transición... el MotionView
+        motionLayout = findViewById(R.id.motionLayout)
+        infoText = findViewById(R.id.infoText)
+        btnReset = findViewById(R.id.btnReset)
 
         gaugeView.setOnClickListener {
             val randomAngle = (0..180).random().toFloat()
