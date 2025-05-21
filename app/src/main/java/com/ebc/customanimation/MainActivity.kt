@@ -86,5 +86,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        btnReset.setOnClickListener {
+            gaugeView.animateTo(0f)
+            infoText.text = "Velocidad: 0 KM/H"
+            motionLayout.transitionToStart()
+        }
+
     }
 }
